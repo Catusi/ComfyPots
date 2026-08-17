@@ -1,266 +1,317 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Handmade pottery — functional ceramics and commission pieces">
-  <title>Comfy Pots — Handmade Ceramics</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Amy's Handmade Pottery</title>
+
   <style>
-    :root{
-      --accent:#8b5e3c; /* warm clay */
-      --muted:#f4efe9;
-      --text:#2b2b2b;
-      --rounded:14px;
-      --max-width:1100px;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; color:var(--text);background:linear-gradient(180deg,var(--muted),#fff 60%)}
-    a{color:inherit}
-    .container{max-width:var(--max-width);margin:0 auto;padding:28px}
 
-    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
-    .brand{display:flex;gap:14px;align-items:center}
-    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#c08a6b);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-family:Montserrat}
-    nav{display:flex;gap:18px;align-items:center}
-    nav a{padding:8px 12px;border-radius:9px;text-decoration:none;font-weight:600}
-    .cta{background:var(--accent);color:#fff;padding:10px 14px;border-radius:12px}
-
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;margin:28px 0}
-    .hero-text h1{font-family:Montserrat,Inter;font-size:38px;margin:0 0 12px}
-    .hero-text p{margin:0 0 18px;color:#4b4b4b}
-    .buttons{display:flex;gap:12px}
-
-    .card{background:white;border-radius:var(--rounded);padding:14px;box-shadow:0 6px 18px rgba(32,32,32,0.06)}
-    .studio-photo{width:100%;height:320px;border-radius:12px;object-fit:cover;background:#ddd}
-
-    /* gallery */
-    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
-    .gallery-grid img{width:100%;height:140px;object-fit:cover;border-radius:10px;cursor:pointer}
-
-    /* shop */
-    .shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
-    .product{display:flex;flex-direction:column;gap:12px}
-    .product img{width:100%;height:160px;object-fit:cover;border-radius:10px}
-    .price{font-weight:700}
-
-    /* contact */
-    form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    form input, form textarea{padding:10px;border-radius:8px;border:1px solid #e6e2de;font-size:14px}
-    form textarea{grid-column:1/-1;min-height:120px;resize:vertical}
-    .btn{border:none;padding:10px 14px;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;cursor:pointer}
-
-    footer{opacity:0.9;padding:28px 0;margin-top:28px}
-
-    /* modal */
-    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.5);z-index:50}
-    .modal.open{display:flex}
-    .modal-inner{max-width:920px;width:92%;background:white;padding:18px;border-radius:12px}
-    .modal-inner img{width:100%;height:480px;object-fit:contain;border-radius:8px}
-
-    /* responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr;}
-      .gallery-grid{grid-template-columns:repeat(2,1fr)}
-      .shop-grid{grid-template-columns:repeat(2,1fr)}
-      form{grid-template-columns:1fr}
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f4ef;
+      color: #3f352e;
+      line-height: 1.6;
     }
-    @media (max-width:520px){
-      .gallery-grid img{height:110px}
-      .logo{width:48px;height:48px}
+
+    header {
+      background: #fffaf5;
+      padding: 25px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e5ddd5;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #3f352e;
+      margin-left: 25px;
+    }
+
+    nav a:hover {
+      color: #9a6b4f;
+    }
+
+    .hero {
+      min-height: 500px;
+      padding: 80px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .hero-text {
+      max-width: 550px;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #8b6248;
+      color: white;
+      text-decoration: none;
+      padding: 13px 25px;
+      border-radius: 5px;
+    }
+
+    .button:hover {
+      background: #684735;
+    }
+
+    .hero-image {
+      width: 420px;
+      height: 420px;
+      background: #ded1c5;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #765c4b;
+    }
+
+    section {
+      padding: 70px 8%;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 34px;
+      margin-bottom: 40px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .product-image {
+      height: 260px;
+      background: #e2d5c9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #765c4b;
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .product-info h3 {
+      margin-bottom: 8px;
+    }
+
+    .price {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .about {
+      background: #eee5dc;
+      text-align: center;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 18px;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    footer {
+      background: #3f352e;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+
+    @media (max-width: 800px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero-image {
+        width: 100%;
+        height: 300px;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <header role="banner">
-      <div class="brand">
-        <div class="logo" aria-hidden="true">S&amp;G</div>
-        <div>
-          <div style="font-weight:700">Stone &amp; Glaze</div>
-          <div style="font-size:13px;color:#666">Handmade ceramics — Local studio</div>
-        </div>
+
+  <header>
+    <div class="logo">Amy's Pottery</div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="hero-text">
+        <h1>Handmade Pottery for Everyday Life</h1>
+
+        <p>
+          Beautiful handmade pottery made with care.
+          Discover unique mugs, pet bowls, and planters
+          made for your home.
+        </p>
+
+        <a href="#shop" class="button">Shop Collection</a>
       </div>
-      <nav role="navigation" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#shop">Shop</a>
-        <a href="#workshops">Workshops</a>
-        <a class="cta" href="#contact">Contact</a>
-      </nav>
-    </header>
 
-    <main>
-      <section class="hero">
-        <div class="hero-text">
-          <h1>Functional pottery, designed for everyday moments</h1>
-          <p>Small-batch, wheel-thrown and hand-glazed ceramics </p>
-          <div class="buttons">
-            <a class="btn" href="#shop">Browse Shop</a>
-            <a style="padding:10px 12px;border-radius:10px;background:transparent;border:1px solid #e6dcd6;">Book a Studio Visit</a>
-          </div>
-
-          <div style="margin-top:16px;color:#5b5b5b;font-size:14px">Free local pickup • Shipping across Canada</div>
-        </div>
-        <aside>
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1526318472351-c75fcf07049a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Studio shot of pottery on shelves" class="studio-photo">
-            <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
-              <div
-                <div style="font-weight:700">Handmade in Vancouver</div>
-                <div style="font-size:13px;color:#666">Open by appointment</div>
-              </div>
-              <div style="text-align:right;font-size:12px;color:#777">Since 2018</div>
-            </div>
-          </div>
-        </aside>
-      </section>
-
-      <section id="about" style="margin-top:28px">
-        <div class="card">
-          <h2 style="margin-top:0">About the Studio</h2>
-          <p style="color:#4b4b4b">Stone &amp; Glaze began with a simple idea: make useful objects that are beautiful to hold. Our pieces are wheel-thrown, bisque-fired, and hand-glazed using food-safe glazes. We accept small commission runs for restaurants and bespoke gifts.</p>
-          <ul style="margin:8px 0 0 18px;color:#555">
-            <li>Wheel-thrown cups, bowls, plates</li>
-            <li>Small-run collections &amp; restaurantware</li>
-            <li>Workshops for beginners and intermediates</li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="gallery" style="margin-top:22px">
-        <h2>Gallery</h2>
-        <div class="gallery-grid" aria-live="polite">
-          <img src="https://images.unsplash.com/photo-1526178615422-37fc88f3a58c?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Ceramic cups on a table" loading="lazy" data-full="https://images.unsplash.com/photo-1526178615422-37fc88f3a58c?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
-          <img src="https://images.unsplash.com/photo-1514986888952-8cd320577b0c?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Artist glazing pottery" loading="lazy" data-full="https://images.unsplash.com/photo-1514986888952-8cd320577b0c?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
-          <img src="https://images.unsplash.com/photo-1508313758090-6f2f9a6f6f7c?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Handmade bowls stacked" loading="lazy" data-full="https://images.unsplash.com/photo-1508313758090-6f2f9a6f6f7c?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
-          <img src="https://images.unsplash.com/photo-1582719478193-6b6c3c6b2d2f?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Glazed plate close up" loading="lazy" data-full="https://images.unsplash.com/photo-1582719478193-6b6c3c6b2d2f?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
-          <img src="https://images.unsplash.com/photo-1556911073-52527ac437e5?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Pottery on a wheel" loading="lazy" data-full="https://images.unsplash.com/photo-1556911073-52527ac437e5?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
-          <img src="https://images.unsplash.com/photo-1526574301175-0b53f3b8f9b6?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Row of cups" loading="lazy" data-full="https://images.unsplash.com/photo-1526574301175-0b53f3b8f9b6?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
-        </div>
-      </section>
-
-      <section id="shop" style="margin-top:28px">
-        <h2>Shop — Featured</h2>
-        <div class="shop-grid">
-          <div class="product card">
-            <img src="https://images.unsplash.com/photo-1508182313388-3f2b5f18b3e6?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Speckled ceramic mug">
-            <div>
-              <div style="font-weight:700">Speckled Mug — 350ml</div>
-              <div style="font-size:13px;color:#666">Hand-thrown, dishwasher-safe.</div>
-              <div class="price">$32 CAD</div>
-            </div>
-          </div>
-
-          <div class="product card">
-            <img src="https://images.unsplash.com/photo-1542736667-069246bdbc97?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Ceramic bowl">
-            <div>
-              <div style="font-weight:700">Everyday Bowl — 18cm</div>
-              <div style="font-size:13px;color:#666">Perfect for cereal and soups.</div>
-              <div class="price">$46 CAD</div>
-            </div>
-          </div>
-
-          <div class="product card">
-            <img src="https://images.unsplash.com/photo-1505139749643-6a0e3a4d8f9c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Set of plates">
-            <div>
-              <div style="font-weight:700">Set of 4 Plates</div>
-              <div style="font-size:13px;color:#666">Mix-and-match glazes available.</div>
-              <div class="price">$160 CAD</div>
-            </div>
-          </div>
-        </div>
-        <div style="margin-top:12px;color:#555;font-size:14px">Want different glazes, sizes, or wholesale? <a href="#contact">Contact us</a> for a custom quote.</div>
-      </section>
-
-      <section id="workshops" style="margin-top:28px">
-        <h2>Workshops</h2>
-        <div class="card" style="display:flex;flex-direction:column;gap:12px">
-          <div style="font-weight:700">Intro to Wheel Throwing — 3 hours</div>
-          <div style="color:#555">Small groups, all tools included. Take home 1–2 fired pieces. Private lessons available.</div>
-          <div style="margin-top:10px"><a class="btn" href="#contact">Book a Workshop</a></div>
-        </div>
-      </section>
-
-      <section id="contact" style="margin-top:28px">
-        <h2>Contact &amp; Visit</h2>
-        <div class="card" style="display:grid;grid-template-columns:1fr 360px;gap:14px">
-          <div>
-            <p style="margin-top:0">Have a question, want to commission a set, or inquire about wholesale? Use the form to get in touch — we'll reply within 2 business days.</p>
-            <form id="contactForm" aria-label="Contact form">
-              <input type="text" name="name" placeholder="Your name" required>
-              <input type="email" name="email" placeholder="Email" required>
-              <input type="text" name="subject" placeholder="Subject">
-              <textarea name="message" placeholder="Tell us about your request" required></textarea>
-              <button class="btn" type="submit">Send Message</button>
-            </form>
-          </div>
-
-          <aside>
-            <div style="font-weight:700">Studio Info</div>
-            <div style="margin-top:8px;color:#666">123 Clay Lane, Edmonton, AB<br>Open by appointment</div>
-            <div style="margin-top:12px">
-              <!-- Map placeholder; replace src with Google Maps iframe if you have an address -->
-              <div style="width:100%;height:200px;border-radius:10px;overflow:hidden;background:#eee;display:flex;align-items:center;justify-content:center;color:#999">Map Placeholder</div>
-            </div>
-            <div style="margin-top:12px;display:flex;gap:8px">
-              <a aria-label="Instagram" href="#">Instagram</a>
-              <a aria-label="E-mail" href="mailto:hello@stoneandglaze.example">Email</a>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-    </main>
-
-    <footer>
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-        <div>&copy; <span id="year"></span> Stone &amp; Glaze — All rights reserved</div>
-        <div style="color:#666;font-size:13px">Made with clay, care &amp; a little caffeine</div>
+      <div class="hero-image">
+        Your main pottery photo goes here
       </div>
-    </footer>
-  </div>
 
-  <!-- Image modal + simple JS -->
-  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-inner" role="document">
-      <button id="closeModal" style="float:right;border:none;background:transparent;font-size:20px;cursor:pointer">✕</button>
-      <img id="modalImg" src="" alt="Large view">
-    </div>
-  </div>
+    </section>
 
-  <script>
-    // year
-    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // gallery modal
-    const modal = document.getElementById('modal');
-    const modalImg = document.getElementById('modalImg');
-    const closeModal = document.getElementById('closeModal');
-    document.querySelectorAll('.gallery-grid img').forEach(img => {
-      img.addEventListener('click', () => {
-        const src = img.dataset.full || img.src;
-        modalImg.src = src;
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden','false');
-      });
-    });
-    closeModal.addEventListener('click', () => {
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden','true');
-    });
-    modal.addEventListener('click', (e)=>{ if(e.target===modal) { modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); } });
+    <section id="shop">
 
-    // contact form (simple local validation)
-    document.getElementById('contactForm').addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
-      // Normally here you'd send to a server. We'll show a friendly message.
-      alert('Thanks, ' + (data.get('name')||'there') + '! Your message has been received. We will reply within 2 business days.');
-      form.reset();
-    });
-  </script>
+      <h2>Shop My Pottery</h2>
+
+      <div class="products">
+
+        <div class="product">
+          <div class="product-image">
+            Pet Bowl Photo
+          </div>
+
+          <div class="product-info">
+            <h3>Pet Bowls</h3>
+            <p>Handmade ceramic bowls for your furry friends.</p>
+            <p class="price">From $30</p>
+          </div>
+        </div>
+
+
+        <div class="product">
+          <div class="product-image">
+            Mug Photo
+          </div>
+
+          <div class="product-info">
+            <h3>Handmade Mugs</h3>
+            <p>Unique handmade mugs for your morning coffee or tea.</p>
+            <p class="price">From $25</p>
+          </div>
+        </div>
+
+
+        <div class="product">
+          <div class="product-image">
+            Planter Photo
+          </div>
+
+          <div class="product-info">
+            <h3>Plant Pots</h3>
+            <p>Beautiful ceramic planters for your favorite plants.</p>
+            <p class="price">From $30</p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="about" id="about">
+
+      <h2>About My Pottery</h2>
+
+      <p>
+        Each piece is handmade with care and designed to bring
+        something special to your everyday life. Every piece is
+        unique, so small differences are part of its charm.
+      </p>
+
+    </section>
+
+
+    <section class="contact" id="contact">
+
+      <h2>Get in Touch</h2>
+
+      <p>
+        Interested in a piece? I'd love to hear from you.
+      </p>
+
+      <br>
+
+      <a href="mailto:your@email.com" class="button">
+        Email Me
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    <p>© 2026 Amy's Pottery. Handmade with love.</p>
+  </footer>
+
 </body>
 </html>
