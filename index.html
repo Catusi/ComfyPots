@@ -116,11 +116,29 @@
       display: block;
     }
 
-    .prev, .next {
+    .slide p {
+      position: static;
+      margin-top: 8px;
+    }
+
+    .prev {
       position: absolute;
+      left: 10px;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    } 
+    
+    .next {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
       color: white;
       border: none;
       padding: 10px;
@@ -217,7 +235,6 @@
 
     </section>
 
-
     <section id="gallery">
 
       <h2>Gallery</h2>
@@ -228,11 +245,23 @@
         </div>
 
         <div class="slide">
-          <img src="images/bunny.jpg" alt="description">
+          <img src="images/cups.jpg" alt="description">
         </div>
 
         <div class="slide">
-          <img src="images/bunny.jpg" alt="description">
+          <img src="images/matcha_set.jpg" alt="description">
+        </div>
+
+        <div class="slide">
+          <img src="images/single_cup.jpg" alt="description">
+        </div>
+
+        <div class="slide">
+          <img src="images/stacked_matcha.jpg" alt="description">
+        </div>
+
+        <div class="slide">
+          <img src="images/striped_cups.jpg" alt="description">
         </div>
 
         <button class="prev">&#10094;</button>
@@ -278,6 +307,28 @@
   <footer>
     <p>© 2026 Amy's Pottery. Handmade with love.</p>
   </footer>
+
+  <script>
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(index) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+    }
+
+    document.querySelector('.next').addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    })
+
+    document.querySelector('.prev').addEventListener('click', () => {
+      currentSlide = (currentSlide - 1) % slides.length;
+      showSlide(currentSlide);
+    })
+
+  </script>
 
 </body>
 </html>
