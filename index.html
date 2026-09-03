@@ -84,6 +84,7 @@
     
     #gallery{
         padding:30px 8% 70px 8%;
+        height: 700px;
     }
 
     section {
@@ -98,51 +99,62 @@
 
     .carousel {
       position: relative;
-      max-width: 600px;
-      margin: auto;
-      overflow: hidden;
+      height: 550px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .slide {
-      display: none;
-    }
-
-    .slide.active {
-      display: block;
+      position: absolute;
+      transition: all 0.4s ease;
+      cursor: pointer;
     }
 
     .slide img {
       width: 100%;
-      display: block;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    
+    .slide.active {
+      width: 500px;
+      height: 500px;
+      z-index: 3;
+      opacity: 1;
     }
 
+    /**
     .slide p {
       position: static;
       margin-top: 8px;
     }
+    **/
 
-    .prev {
-      position: absolute;
-      left: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.5);
-      color: white;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
+    .slide.prev {
+      width: 400px;
+      height: 400px;
+      transform: translateX(-480px) scale(0.85);
+      opacity: 0.6;
+      z-index: 2;
     } 
     
-    .next {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.5);
-      color: white;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
+    .slide.next {
+      width: 400px;
+      height: 400px;
+      transform: translateX(480px) scale(0.85);
+      opacity: 0.6;
+      z-index: 2;
+    }
+
+    .slide.hidden {
+      height: 400px;
+      width: 400px;
+      transform: scale(0.7);
+      opacity: 0;
+      z-index: 1;
+      pointer-events: none;
     }
 
     .about {
@@ -240,32 +252,29 @@
       <h2>Gallery</h2>
 
       <div class="carousel">
-        <div class="active slide">
+        <div class="slide" data-index="0">
           <img src="images/bunny.jpg" alt="description">
         </div>
 
-        <div class="slide">
+        <div class="slide" data-index="1">
           <img src="images/cups.jpg" alt="description">
         </div>
 
-        <div class="slide">
+        <div class="slide" data-index="2">
           <img src="images/matcha_set.jpg" alt="description">
         </div>
 
-        <div class="slide">
+        <div class="slide" data-index="3">
           <img src="images/single_cup.jpg" alt="description">
         </div>
 
-        <div class="slide">
+        <div class="slide" data-index="4">
           <img src="images/stacked_matcha.jpg" alt="description">
         </div>
 
-        <div class="slide">
+        <div class="slide" data-index="5">
           <img src="images/striped_cups.jpg" alt="description">
         </div>
-
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
 
       </div>
 
@@ -310,23 +319,33 @@
 
   <script>
 
-    let currentSlide = 0;
+    let currentIndex = 0;
     const slides = document.querySelectorAll('.slide');
 
-    function showSlide(index) {
-      slides.forEach(slide => slide.classList.remove('active'));
-      slides[index].classList.add('active');
+    function updateSlides() {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active', 'prev', 'next', 'hidden');
+
+        if (i === currentIndex) {
+          slide.classList.add('active');
+        } else if (i === (currentIndex - 1 + slides.length) % slides.length) {
+          slide.classList.add('prev');
+        }else if (i === (currentIndex + 1) % slides.length) {
+          slide.classList.add('next');
+        } else {
+          slide.classList.add('hidden');
+        }
+      });
     }
 
-    document.querySelector('.next').addEventListener('click', () => {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-    })
+    slides.forEach(slide => {
+      slide.addEventListener('click', () => {
+        currentIndex = parseInt(slide.dataset.index);
+        updateSlides()
+      });
+    });
 
-    document.querySelector('.prev').addEventListener('click', () => {
-      currentSlide = (currentSlide - 1) % slides.length;
-      showSlide(currentSlide);
-    })
+    updateSlides();
 
   </script>
 
